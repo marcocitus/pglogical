@@ -500,9 +500,9 @@ cannot replay interleaved concurrent transactions. This can lead to high latenci
 when big transactions are being replayed, since smaller transactions get queued
 up behind them.
 
-## Unique index required for inserts or updates
+## Unique index required for deletes or updates
 
-To replicate `INSERT`s or `UPDATE`s it is necessary to have a `PRIMARY KEY`
+To replicate `DELETE`s or `UPDATE`s it is necessary to have a `PRIMARY KEY`
 or a (non-partial, columns-only) `UNIQUE` index on the table, so the table
 has a `REPLICA IDENTITY`. Without that `pglogical_output` doesn't know what
 old key to send to allow the receiver to tell which tuple is being updated.
